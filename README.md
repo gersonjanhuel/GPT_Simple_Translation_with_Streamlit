@@ -9,9 +9,10 @@ To run this project you need to install these libraries on your python machine:
 2. install openai
 3. install gtts
 4. install PyPDF2 
+5. Use your own Open API key. 
 
 
-Important note: 
+Important Note: 
 Use your own OpenAI API Key. 
 If you already have the key, export the API key in Python Environment. using command: 
 export OPENAI_API_KEY="...your key..." then re-run the app.

@@ -13,7 +13,6 @@ To run this project you need to install these libraries on your python machine:
 
 
 Important Note: 
-Use your own OpenAI API Key. 
-If you already have the key, export the API key in Python Environment. using command: 
+Use your own OpenAI API Key. If you already have the key, export the API key in Python Environment. using command: 
 export OPENAI_API_KEY="...your key..." then re-run the app.
 

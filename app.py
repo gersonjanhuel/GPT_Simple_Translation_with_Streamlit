@@ -5,8 +5,8 @@ import os
 import PyPDF2
 
 # Function to call OpenAI's GPT-3.5 API for translation
-def translate_text(text, target_language):
-    client = OpenAI()
+def translate_text(user_api_key, text, target_language):
+    client = OpenAI(api_key=user_api_key)
     
     prompt = f"Translate the following text to {target_language}: \"{text}\""
 
@@ -42,6 +42,11 @@ def extract_text_from_file(uploaded_file):
 # Title
 st.title("Simple GPT Translation App")
 
+st.markdown(
+    ":orange-badge[⚠️ Important: This app will not store your API Key]"
+)
+user_openai_api_key = st.text_input("Your OpenAI API key to work with gpt-3.5-turbo model.")
+
 # Logic to allowing users to either enter text directly or upload a file
 options = ["Enter text directly", "Upload document"]
 selection = st.segmented_control(
@@ -71,7 +76,7 @@ target_language = st.selectbox("Select target language:", options=list(languages
 # Translate button
 if st.button("Translate"):
     if text_to_translate.strip():
-        translated_text = translate_text(text_to_translate, languages[target_language])
+        translated_text = translate_text(user_openai_api_key, text_to_translate, languages[target_language])
         st.success("Translation:")
         st.write(translated_text)
 
